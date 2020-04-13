@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 // const xmlparser = require('express-xml-bodyparser');
-const covid19ImpactEstimator = require('./estimator');
 const parseString = require('xml2js').parseString;
+const covid19ImpactEstimator = require('./estimator');
 
 const app = express();
 const port = 3000;
@@ -16,15 +16,15 @@ const port = 3000;
 const data = [];
 app.use(cors());
 // app.use(xmlparser());
-app.post('/api/v1/on-covid-19/xml/', (req, res) => {
-  res.type('application/xml');
-  const inputData = req.body;
-  parseString(inputData, function(err, result){
-    res.send(result);
-    data.push(result);
-    // console.log(result);
-  });
-});
+// app.post('/api/v1/on-covid-19/xml/', (req, res) => {
+//   res.type('application/xml');
+//   const inputData = req.body;
+//   parseString(inputData, function(err, result) {
+//     res.send(result);
+//     data.push(result);
+//     // console.log(result);
+//   });
+// });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
