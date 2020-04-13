@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 // const xmlparser = require('express-xml-bodyparser');
-const parseString = require('xml2js').parseString;
+// const parseString = require('xml2js').parseString;
 const covid19ImpactEstimator = require('./estimator');
 
 const app = express();
