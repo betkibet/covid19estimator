@@ -13,9 +13,9 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // create logger here
-var loggerFormat = ':method :url :status :response-time ms';
+const loggerFormat = ':method :url :status :response-time ms';
 app.use(morgan(loggerFormat, {
-  stream: fs.createWriteStream('./access.log', {flags: 'a'})
+  stream: fs.createWriteStream('./access.log', { flags: 'a' })
 }));
 // app.use(morgan('dev'));
 // XML Post Data
@@ -24,7 +24,7 @@ app.post('/api/v1/on-covid-19/xml', (req, res) => {
   const inputData = req.body;
   res.send(builder.buildObject(covid19ImpactEstimator(inputData)));
   data.push(covid19ImpactEstimator(inputData));
-  console.log(builder.buildObject(covid19ImpactEstimator(inputData)));
+  // console.log(builder.buildObject(covid19ImpactEstimator(inputData)));
 });
 // json post data
 app.post('/api/v1/on-covid-19', (req, res) => {
@@ -47,7 +47,7 @@ app.get('/api/v1/on-covid-19/logs', (req, res) => {
   res.set('Content-Type', 'text/plain');
   res.status(200);
   // read file content
-  fs.readFile('access.log', 'utf8', function (err, fileContent) {
+  fs.readFile('access.log', 'utf8', function(err, fileContent) {
     if (err) throw err;
     return res.send(fileContent);
   });
