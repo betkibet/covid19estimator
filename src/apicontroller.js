@@ -47,9 +47,9 @@ app.get('/api/v1/on-covid-19/logs', (req, res) => {
   res.set('Content-Type', 'text/plain');
   res.status(200);
   // read file content
-  fs.readFile('access.log', 'utf8', function(err, fileContent) {
+  fs.readFile('access.log', 'utf8', (err, fileContent) => {
     if (err) throw err;
     return res.send(fileContent);
   });
 });
-// app.listen(port);
+// app.listen(3000);
