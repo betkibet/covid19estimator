@@ -52,6 +52,10 @@ app.get('/api/v1/on-covid-19/logs', (req, res) => {
     return res.send(fileContent);
   });
 });
-const server = app.listen(process.env.PORT || 5000);
-server.address().port;
+// const server = app.listen(process.env.PORT || 5000);
+// server.address().port;
 // console.log("Express is working on port " + port);
+const server = app.listen(process.env.PORT || 5000, function () {
+  const port = server.address().port;
+  console.log("Express is working on port " + port);
+});
