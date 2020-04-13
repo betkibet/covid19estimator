@@ -52,4 +52,4 @@ app.get('/api/v1/on-covid-19/logs', (req, res) => {
     return res.send(fileContent);
   });
 });
-app.listen();
+// app.listen();
