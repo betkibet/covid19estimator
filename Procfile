@@ -1,1 +1,1 @@
-web: node src/apicontroller.js
+web:node src/apicontroller.js
