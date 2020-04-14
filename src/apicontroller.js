@@ -52,6 +52,6 @@ app.get('/api/v1/on-covid-19/logs', (req, res) => {
     return res.send(fileContent);
   });
 });
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 app.listen(port);
 // console.log('server started on port ' + port);
