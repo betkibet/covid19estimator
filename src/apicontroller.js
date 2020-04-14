@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // create logger here
-morgan.token('response-time', () =>{
+morgan.token('response-time', () => {
   const start = new Date().getMilliseconds();
   const end = new Date().getMilliseconds() * 0.5;
   let time = start - end;
