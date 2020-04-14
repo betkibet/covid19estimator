@@ -28,5 +28,6 @@
   },
   "browserslist": [
     "last 1 Chrome versions"
-  ]
+  ],
+  "heroku-run-build-script": true
 }
