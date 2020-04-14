@@ -13,7 +13,16 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // create logger here
-const loggerFormat = ':method :url :status :response-time[0]ms';
+morgan.token('response-time', (req, res) => {
+  const start = new Date().getMilliseconds();
+  const end = new Date().getMilliseconds() * 0.5;
+  let time = start - end;
+  time = Math.round(time);
+  time = time.toString().padStart(2, 0);
+  time = +time;
+  return time + 'ms';
+});
+const loggerFormat = ':method :url :status :response-time';
 app.use(morgan(loggerFormat, {
   stream: fs.createWriteStream('./access.log', { flags: 'a' })
 }));
